@@ -3,593 +3,520 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chandler Blocker — Creative Director & UGC Creator</title>
-  <meta name="description" content="Chandler Blocker is a creative director and UGC creator based in Dallas, TX. Former ACD with agency work for Children's National, Reese's, Girl Scouts, and more.">
-  <meta property="og:title" content="Chandler Blocker">
-  <meta property="og:description" content="Creative director & UGC creator based in Dallas, TX.">
-  <meta property="og:url" content="https://blockercreative.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+  <title>Blocker Creative</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Cutive+Mono&family=Bebas+Neue&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --black: #111111;
-      --white: #ffffff;
-      --off-white: #f7f6f4;
-      --gray: #888888;
-      --accent: #e8501a;
-      --font-display: 'Barlow Condensed', sans-serif;
-      --font-body: 'Barlow', sans-serif;
+      --bg:      rgb(250, 250, 250);
+      --text:    rgba(0, 0, 0, 0.64);
+      --heading: rgb(51, 51, 51);
+      --white:   rgb(255, 255, 255);
+      --font-nav:   'Bebas Neue', sans-serif;
+      --font-hero:  'Barlow', sans-serif;
+      --font-mono:  'Cutive Mono', monospace;
+      --font-title: 'Josefin Sans', sans-serif;
     }
 
     html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-mono); font-size: 13px; line-height: 26px; }
+    img  { display: block; }
+    a    { text-decoration: none; }
 
-    body {
-      background: var(--white);
-      color: var(--black);
-      font-family: var(--font-body);
-      font-size: 16px;
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── NAV ── */
+    /* NAV */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 28px 48px;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(8px);
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 48px;
+      background: var(--bg);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
     }
-
-    .nav-logo {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: 18px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: var(--black);
-      line-height: 1.15;
+    .nav-logo img { height: 88px; width: auto; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a.nav-text {
+      font-family: var(--font-nav); font-size: 16px; letter-spacing: 0.1em;
+      color: var(--heading); text-transform: uppercase; transition: opacity 0.2s;
     }
+    .nav-links a.nav-text:hover { opacity: 0.5; }
+    .nav-instagram { display: flex; align-items: center; color: var(--heading); transition: opacity 0.2s; }
+    .nav-instagram:hover { opacity: 0.5; }
+    .nav-instagram svg { width: 19px; height: 19px; }
 
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 36px;
-      list-style: none;
+    /* HERO */
+    @keyframes heroShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
-
-    .nav-links a {
-      font-family: var(--font-body);
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: var(--black);
-      transition: opacity 0.2s;
-    }
-
-    .nav-links a:hover { opacity: 0.5; }
-
-    .nav-links .nav-cta {
-      background: var(--black);
-      color: var(--white);
-      padding: 10px 20px;
-      letter-spacing: 0.1em;
-    }
-
-    .nav-links .nav-cta:hover { opacity: 0.75; }
-
-    /* ── HERO ── */
     .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 140px 48px 80px;
-      max-width: 1200px;
-      margin: 0 auto;
+      height: auto;
+      padding-top: 160px;
+      padding-bottom: 60px;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, rgb(250,250,250) 0%, rgb(242,242,240) 40%, rgb(248,248,246) 70%, rgb(250,250,250) 100%);
+      background-size: 300% 300%;
+      animation: heroShift 14s ease infinite;
+    }
+    .hero-text { text-align: center; padding: 0 48px; max-width: 860px; }
+    .hero-text h1 {
+      font-family: var(--font-hero); font-size: 48px; font-weight: 600;
+      color: var(--heading); text-transform: uppercase; letter-spacing: 0.03em; line-height: 1.35;
     }
 
-    .hero-eyebrow {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gray);
-      margin-bottom: 24px;
+    /* PORTFOLIO GRID — home page */
+    .portfolio-grid { display: block; }
+    .portfolio-pair { display: flex; width: 100%; }
+    .portfolio-tile { position: relative; overflow: hidden; display: block; cursor: pointer; flex-shrink: 0; }
+    .portfolio-tile.tile-full  { width: 100%; }
+    .portfolio-tile.tile-full  img { width: 100%; height: 62vh; object-fit: cover; transition: transform 0.6s ease; }
+    .portfolio-tile.tile-half  { width: 50%; }
+    .portfolio-tile.tile-half  img { width: 100%; height: 44vw; object-fit: cover; transition: transform 0.6s ease; }
+    .portfolio-tile:hover img  { transform: scale(1.03); }
+    .portfolio-tile-overlay {
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,0.38);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.35s ease;
+    }
+    .portfolio-tile:hover .portfolio-tile-overlay { opacity: 1; }
+    .portfolio-tile-title {
+      color: var(--white); font-family: var(--font-nav); font-size: 28px;
+      letter-spacing: 0.14em; text-transform: uppercase; text-align: center; padding: 0 16px;
     }
 
-    .hero h1 {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: clamp(52px, 7vw, 96px);
-      line-height: 0.95;
-      letter-spacing: -0.01em;
-      text-transform: uppercase;
-      max-width: 900px;
-    }
+    /* PORTFOLIO DETAIL PAGE */
+    .portfolio-page { padding-top: 96px; padding-bottom: 80px; }
+    .portfolio-page-header { text-align: center; padding: 50px 48px 36px; }
+    .portfolio-page-title { font-family: var(--font-nav); font-size: 52px; letter-spacing: 0.12em; color: var(--heading); text-transform: uppercase; margin-bottom: 22px; }
+    .portfolio-page-desc  { font-family: var(--font-mono); font-size: 13px; line-height: 26px; color: var(--text); max-width: 680px; margin: 0 auto; }
+    .portfolio-awards { max-width: 680px; margin: 24px auto 0; font-family: var(--font-mono); font-size: 13px; line-height: 26px; color: var(--text); }
+    .portfolio-awards-label { font-family: var(--font-nav); font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--heading); margin-bottom: 4px; }
+    .case-steps { max-width: 680px; margin: 28px auto 0; padding: 0 48px; text-align: left; }
+    .case-step-label { font-family: var(--font-nav); font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--heading); margin-bottom: 4px; margin-top: 18px; }
+    .case-step-text  { font-family: var(--font-mono); font-size: 13px; line-height: 26px; color: var(--text); }
 
-    .hero h1 em {
-      font-style: normal;
-      color: var(--gray);
-    }
+    /* VIMEO EMBEDS */
+    .vimeo-embed { width: 100%; margin-bottom: 4px; }
+    .vimeo-embed iframe { width: 100%; height: 56.25vw; max-height: 78vh; border: none; display: block; }
 
-    .hero-sub {
-      margin-top: 40px;
-      font-size: 18px;
-      color: var(--gray);
-      max-width: 520px;
-      line-height: 1.6;
-    }
+    /* GALLERY — all images full width on detail pages */
+    .gallery-row-full { margin-top: 4px; }
+    .gallery-row-full img { width: 100%; height: auto; display: block; }
 
-    .hero-actions {
-      margin-top: 48px;
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
+    /* GALLERY — side-by-side pair (Reese's / Suave custom layouts) */
+    .gallery-row-pair { display: flex; width: 100%; margin-top: 4px; }
+    .gallery-row-pair img { width: 50%; height: 44vw; object-fit: cover; display: block; }
 
-    .btn {
-      display: inline-block;
-      font-family: var(--font-body);
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 14px 28px;
-      transition: all 0.2s;
-    }
+    /* SUBSECTIONS (Social Content) */
+    .subsection-wrap { padding: 32px 48px 0; max-width: 780px; margin: 0 auto; text-align: center; }
+    .subsection-title { font-family: var(--font-nav); font-size: 22px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--heading); margin-bottom: 8px; }
+    .subsection-desc  { font-family: var(--font-mono); font-size: 13px; line-height: 26px; color: var(--text); }
 
-    .btn-dark {
-      background: var(--black);
-      color: var(--white);
-    }
+    /* PROJECT NAV */
+    .project-nav { display: flex; justify-content: space-between; align-items: center; padding: 40px 48px; border-top: 1px solid rgba(0,0,0,0.09); margin-top: 48px; }
+    .project-nav a { font-family: var(--font-nav); font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--heading); transition: opacity 0.2s; }
+    .project-nav a:hover { opacity: 0.5; }
+    .nav-spacer { min-width: 80px; }
 
-    .btn-dark:hover {
-      background: #333;
-    }
+    /* ABOUT PAGE */
+    .about-page  { padding: 160px 48px 80px; max-width: 840px; margin: 0 auto; }
+    .about-h1    { font-family: var(--font-title); font-size: 80px; font-weight: 300; letter-spacing: -0.02em; color: var(--heading); margin-bottom: 30px; line-height: 1; }
+    .about-intro { font-family: var(--font-hero); font-size: 19px; font-weight: 300; line-height: 1.65; color: var(--text); margin-bottom: 44px; }
+    .faq-q { font-family: var(--font-nav); font-size: 23px; letter-spacing: 0.06em; color: var(--heading); text-transform: uppercase; margin-bottom: 6px; }
+    .faq-a { font-family: var(--font-mono); font-size: 13px; line-height: 26px; color: var(--text); margin-bottom: 28px; }
+    .faq-a a { color: var(--heading); }
+    .about-exp { margin-top: 52px; padding-top: 32px; border-top: 1px solid rgba(0,0,0,0.09); }
+    .about-exp-label { font-family: var(--font-nav); font-size: 22px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--heading); margin-bottom: 18px; }
+    /* Three-column grid: title | company + location | years */
+    .exp-grid { display: grid; grid-template-columns: 1fr 1fr auto; gap: 2px 32px; }
+    .exp-line { font-family: var(--font-mono); font-size: 13px; line-height: 26px; color: var(--text); display: contents; }
+    .exp-line span.exp-title    { font-family: var(--font-mono); font-size: 13px; line-height: 26px; color: var(--text); }
+    .exp-line span.exp-location { font-family: var(--font-mono); font-size: 13px; line-height: 26px; color: var(--text); }
+    .exp-line span.exp-years    { font-family: var(--font-mono); font-size: 13px; line-height: 26px; color: var(--text); white-space: nowrap; }
+    .exp-edu  { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(0,0,0,0.06); font-family: var(--font-mono); font-size: 13px; line-height: 26px; color: var(--text); }
 
-    .btn-outline {
-      border: 1.5px solid var(--black);
-      color: var(--black);
-    }
+    /* FOOTER */
+    #site-footer { text-align: center; padding: 36px 48px; font-family: var(--font-mono); font-size: 11px; color: var(--text); border-top: 1px solid rgba(0,0,0,0.07); }
 
-    .btn-outline:hover {
-      background: var(--black);
-      color: var(--white);
-    }
-
-    /* ── SECTION LABELS ── */
-    .section-label {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gray);
-      margin-bottom: 48px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid #e0e0e0;
-    }
-
-    /* ── WORK GRID ── */
-    #work {
-      padding: 120px 48px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .work-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 4px;
-    }
-
-    .work-item {
-      position: relative;
-      overflow: hidden;
-      aspect-ratio: 4/3;
-      display: block;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .work-item-bg {
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
-    }
-
-    .work-item:hover .work-item-bg {
-      transform: scale(1.04);
-    }
-
-    .work-item-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0);
-      transition: background 0.3s;
-      display: flex;
-      align-items: flex-end;
-      padding: 32px;
-    }
-
-    .work-item:hover .work-item-overlay {
-      background: rgba(0,0,0,0.35);
-    }
-
-    .work-item-label {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 22px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--white);
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.3s, transform 0.3s;
-    }
-
-    .work-item:hover .work-item-label {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Project color backgrounds (used until real images are swapped in) */
-    .bg-childrens   { background-color: #f5d9e8; background-image: linear-gradient(135deg, #f5d9e8 0%, #adc9e8 60%, #f5d9e8 100%); }
-    .bg-reeses      { background-color: #e8501a; background-image: linear-gradient(135deg, #e8501a 0%, #f5b800 100%); }
-    .bg-girlscouts  { background-color: #1a2e3b; background-image: linear-gradient(135deg, #1a2e3b 0%, #2d5a6b 100%); }
-    .bg-social      { background-color: #6a2f9e; background-image: linear-gradient(135deg, #6a2f9e 0%, #c0392b 100%); }
-
-    /* ── UGC SECTION ── */
-    #ugc {
-      background: var(--off-white);
-      padding: 120px 48px;
-    }
-
-    .ugc-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
-    }
-
-    .ugc-left h2 {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: clamp(40px, 5vw, 72px);
-      line-height: 0.95;
-      text-transform: uppercase;
-      margin-bottom: 28px;
-    }
-
-    .ugc-left h2 span {
-      color: var(--accent);
-    }
-
-    .ugc-left p {
-      font-size: 17px;
-      color: #444;
-      line-height: 1.7;
-      margin-bottom: 36px;
-    }
-
-    .ugc-packages {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .ugc-package {
-      background: var(--white);
-      padding: 28px 32px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 24px;
-    }
-
-    .ugc-package-name {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 18px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    .ugc-package-desc {
-      font-size: 13px;
-      color: var(--gray);
-      margin-top: 4px;
-      line-height: 1.4;
-    }
-
-    .ugc-package-price {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: 22px;
-      white-space: nowrap;
-      color: var(--black);
-    }
-
-    /* ── ABOUT ── */
-    #about {
-      padding: 120px 48px;
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
-    }
-
-    #about h2 {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: clamp(40px, 5vw, 64px);
-      line-height: 0.95;
-      text-transform: uppercase;
-    }
-
-    .about-body p {
-      font-size: 17px;
-      line-height: 1.75;
-      color: #333;
-      margin-bottom: 20px;
-    }
-
-    .about-body p:last-child { margin-bottom: 0; }
-
-    .about-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 32px;
-    }
-
-    .tag {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 8px 14px;
-      border: 1px solid #ddd;
-      color: #555;
-    }
-
-    /* ── CONTACT ── */
-    #contact {
-      background: var(--black);
-      color: var(--white);
-      padding: 120px 48px;
-      text-align: center;
-    }
-
-    #contact h2 {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: clamp(48px, 7vw, 96px);
-      line-height: 0.95;
-      text-transform: uppercase;
-      margin-bottom: 32px;
-    }
-
-    #contact p {
-      font-size: 18px;
-      color: #aaa;
-      max-width: 480px;
-      margin: 0 auto 48px;
-      line-height: 1.6;
-    }
-
-    .contact-email {
-      display: inline-block;
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: clamp(20px, 3vw, 32px);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--white);
-      text-decoration: none;
-      border-bottom: 2px solid var(--accent);
-      padding-bottom: 4px;
-      transition: color 0.2s;
-    }
-
-    .contact-email:hover { color: var(--accent); }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--black);
-      border-top: 1px solid #222;
-      padding: 24px 48px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    footer p {
-      font-size: 12px;
-      color: #555;
-      letter-spacing: 0.08em;
-    }
-
-    footer a {
-      font-size: 12px;
-      color: #555;
-      text-decoration: none;
-      letter-spacing: 0.08em;
-      transition: color 0.2s;
-    }
-
-    footer a:hover { color: var(--white); }
-
-    /* ── MOBILE ── */
+    /* MOBILE */
     @media (max-width: 768px) {
-      nav { padding: 20px 24px; }
-      .nav-logo { font-size: 15px; }
+      nav { padding: 16px 24px; }
       .nav-links { gap: 20px; }
-      .nav-links li:not(:last-child) { display: none; }
-
-      .hero { padding: 120px 24px 60px; }
-      #work { padding: 80px 24px; }
-      .work-grid { grid-template-columns: 1fr; }
-
-      #ugc { padding: 80px 24px; }
-      .ugc-inner { grid-template-columns: 1fr; gap: 48px; }
-
-      #about { padding: 80px 24px; grid-template-columns: 1fr; gap: 32px; }
-      #contact { padding: 80px 24px; }
-
-      footer { padding: 20px 24px; flex-direction: column; gap: 8px; text-align: center; }
+      .hero-text h1 { font-size: 28px; }
+      .portfolio-tile.tile-full  img { height: 50vw; }
+      .portfolio-tile.tile-half  img { height: 50vw; }
+      .portfolio-tile-title { font-size: 18px; }
+      .portfolio-page-header { padding: 40px 24px 24px; }
+      .portfolio-page-title  { font-size: 36px; }
+      .project-nav { padding: 28px 24px; flex-wrap: wrap; gap: 12px; }
+      .about-page  { padding: 100px 24px 60px; }
+      .about-h1    { font-size: 52px; }
+      .about-intro { font-size: 16px; }
+      .subsection-wrap { padding: 24px 24px 0; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
-    <a href="/" class="nav-logo">Chandler<br>Blocker</a>
+    <a href="#/" class="nav-logo">
+      <img src="https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597592996298-CY5GMZU7CQAJPCCSGI5Y/Blocker-Creative-Logo.gif" alt="Blocker Creative">
+    </a>
     <ul class="nav-links">
-      <li><a href="#work">Work</a></li>
-      <li><a href="#ugc">UGC</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+      <li><a href="#/" class="nav-text">Work</a></li>
+      <li><a href="#/contact" class="nav-text">About</a></li>
+      <li>
+        <a href="https://www.instagram.com/blockercreative/" target="_blank" rel="noopener" class="nav-instagram" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4.5"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+      </li>
     </ul>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <p class="hero-eyebrow">Dallas, TX — Creative Director & UGC Creator</p>
-    <h1>Chandler Blocker<br><em>Makes Things</em><br>People Remember</h1>
-    <p class="hero-sub">Former associate creative director turned content creator. Agency work you've seen. UGC that actually converts.</p>
-    <div class="hero-actions">
-      <a href="#work" class="btn btn-dark">See the Work</a>
-      <a href="#ugc" class="btn btn-outline">UGC Services</a>
-    </div>
-  </section>
+  <main id="app"></main>
 
-  <!-- WORK -->
-  <section id="work">
-    <p class="section-label">Selected Work</p>
-    <div class="work-grid">
-
-      <a href="childrens-national.html" class="work-item">
-        <div class="work-item-bg bg-childrens"></div>
-        <div class="work-item-overlay">
-          <span class="work-item-label">Children's National</span>
-        </div>
-      </a>
-
-      <a href="reeses.html" class="work-item">
-        <div class="work-item-bg bg-reeses"></div>
-        <div class="work-item-overlay">
-          <span class="work-item-label">Reese's</span>
-        </div>
-      </a>
-
-      <a href="girl-scouts.html" class="work-item">
-        <div class="work-item-bg bg-girlscouts"></div>
-        <div class="work-item-overlay">
-          <span class="work-item-label">Girl Scouts</span>
-        </div>
-      </a>
-
-      <a href="social-content.html" class="work-item">
-        <div class="work-item-bg bg-social"></div>
-        <div class="work-item-overlay">
-          <span class="work-item-label">Social Content</span>
-        </div>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- UGC -->
-  <section id="ugc">
-    <div class="ugc-inner">
-      <div class="ugc-left">
-        <p class="section-label">UGC Services</p>
-        <h2>Content Brands<br>Actually <span>Use</span></h2>
-        <p>I create short-form video content from a real mom's perspective — authentic, relatable, and designed to drive trust. Not polished studio work. The kind of thing that makes someone think "I need that."</p>
-        <p>Background in agency creative. Now building from the living room floor.</p>
-        <a href="#contact" class="btn btn-dark">Let's Work Together</a>
-      </div>
-      <div class="ugc-right">
-        <p class="section-label">Packages</p>
-        <div class="ugc-packages">
-          <div class="ugc-package">
-            <div>
-              <div class="ugc-package-name">Single Video</div>
-              <div class="ugc-package-desc">1 vertical video (15–60s) · Reels/TikTok ready · 1 revision</div>
-            </div>
-            <div class="ugc-package-price">$150–250</div>
-          </div>
-          <div class="ugc-package">
-            <div>
-              <div class="ugc-package-name">Content Pack</div>
-              <div class="ugc-package-desc">3 vertical videos · Hook, demo & testimonial · 1 revision each</div>
-            </div>
-            <div class="ugc-package-price">$400–600</div>
-          </div>
-          <div class="ugc-package">
-            <div>
-              <div class="ugc-package-name">Monthly Retainer</div>
-              <div class="ugc-package-desc">4 videos/month · Priority turnaround · Ongoing brand voice</div>
-            </div>
-            <div class="ugc-package-price">$600–900</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div>
-      <p class="section-label">About</p>
-      <h2>ACD.<br>Mom.<br>Builder.</h2>
-    </div>
-    <div class="about-body">
-      <p>I spent years as an Associate Creative Director at an advertising agency — working on campaigns for national brands, directing video shoots, and building the kind of work that wins awards and moves product.</p>
-      <p>Now I'm a stay-at-home mom in Dallas, and I've taken everything I learned in that world into this one. I create UGC for family, kids, and lifestyle brands — and I run <strong>AI at Home Mom</strong>, a content channel showing moms how to use AI to build real things.</p>
-      <p>I know what brands need from content. I also know what actually resonates with moms. That combination is rare.</p>
-      <div class="about-tags">
-        <span class="tag">Video Direction</span>
-        <span class="tag">UGC Creation</span>
-        <span class="tag">Brand Creative</span>
-        <span class="tag">Social Content</span>
-        <span class="tag">Reels & TikTok</span>
-        <span class="tag">Dallas, TX</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2>Let's Make<br>Something</h2>
-    <p>Interested in UGC, brand creative, or just want to talk? I'd love to hear from you.</p>
-    <a href="mailto:chandler@blockercreative.com" class="contact-email">chandler@blockercreative.com</a>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 Blocker Creative</p>
-    <a href="https://instagram.com" target="_blank">Instagram</a>
+  <footer id="site-footer">
+    &copy; Blocker Creative &nbsp;&middot;&nbsp;
+    <a href="mailto:chandler@blockercreative.com" style="color:inherit;">chandler@blockercreative.com</a>
   </footer>
 
+  <script>
+
+    // ── PROJECT DATA ───────────────────────────────────────────────────────────
+    // String quoting rules used throughout:
+    //   single quotes  → strings that contain double quotes
+    //   double quotes  → strings that contain apostrophes
+    //   backticks      → strings that contain both
+    // ──────────────────────────────────────────────────────────────────────────
+
+    var PROJECTS = [
+      {
+        id: 'childrens-national',
+        title: "CHILDREN'S NATIONAL",
+        thumbnail: 'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1614713029181-FD9R8UBUP2VBSFS8DC2Q/Screen+Shot+2021-03-02+at+1.23.36+PM.png',
+        description: "Children's National Hospital News: Bringing you today's top stories to kids, from kids.",
+        awards: [],
+        videos: ['518719141','518720284','518719741','518720044','518719504','576870296'],
+        images: [
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1614715270358-VTXHV0NW1FYMNX483W66/Cancer-T-high.gif',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1614714544232-86G81UVQQJ2ZAWQUVGND/1_CHI_Brand.jpg',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1626713960999-O2D1PFG9010KSRIX5O30/iPhone+12+Pro+Mockup+%281%29+copy.jpg',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1626714324743-GPTSVUP7NGAW7SHGS76F/Apple-Devices1+copy.jpg',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1626714016926-VSEOEOK5I9UP1HX6PROD/Side+by+side+mags.jpg',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1626714217285-ONFZP25FO3C1BXRUW6MZ/Screen+Shot+2021-07-19+at+12.03.19+PM.png',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1626714061146-AMTH9AL7EWEOC46L4QZZ/NCB_MagazineSpread.jpg',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1626714110062-QTE72D3C9G9U0FQWMMMC/iPhone+12+Pro+Mockup+%282%29+copy.jpg'
+        ]
+      },
+      {
+        id: 'reeses',
+        title: "REESE'S",
+        thumbnail: 'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597535319267-3L5HU4XX0E11S5F9GLZK/CaseStudy_Still-1.jpg',
+        description: "This holiday season, Twitter users noticed something was off with their Reese's Trees. This negative sentiment picked up steam from Fortune, CNN, TIME, Cosmo, and The Today Show. So, we had to change the narrative and get consumers to stop arguing over shapes and start celebrating what matters on the inside. #AllTreesAreBeautiful",
+        awards: [
+          'Cannes - Silver Lion',
+          'One Show - Gold',
+          'Webbys - Best Use of Social Media',
+          "Webbys - People's Choice",
+          'Addys - Regional Winner'
+        ],
+        videos: ['153272477'],
+        images: [
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597532712103-QY6AKHZCHQIURYDHJOAP/Reeses-flatlay.jpg',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597590930681-3WTD6X7I13JEFNTLY8LB/Reeses+PR.jpg',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597535319267-3L5HU4XX0E11S5F9GLZK/CaseStudy_Still-1.jpg'
+        ],
+        galleryLayout: [ [0,2], 1 ]
+      },
+      {
+        id: 'evausissuave',
+        title: 'SUAVE',
+        thumbnail: 'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597535964714-5SEP1BVNCQUUF44JXNYF/Suave-Reveal.gif',
+        description: "Suave has a branding problem. They're a punchline to every online beauty joke, with an extremely low brand sentiment. But the surprising thing is that once people try the product, they love it. Our task was to get people to try it so we went undercover as a premium new hair care line and tricked a whole bunch of beauty bloggers into becoming #SuaveBelievers.",
+        awards: ['Bronze Clio - Brand Development'],
+        videos: ['211776492','223669036'],
+        images: [
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597588637324-QB5QITXROFGNZPCF645D/Suave-insta.jpg',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597533109160-MLKDUMZPDWPRHUV3KOWB/Suave-flatlay.jpg',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597533084084-BNOFU72UT3FLF5ZMP9G1/Suave-devices.jpg',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597533533348-C0A94OKSN150CS8IBYHU/Suave-photo-4.jpg',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597533138523-VMD7WF24JYHNUY8U0W81/Suave-photo-1.jpg',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597533201606-AND4NTJXLML3IIFDFLIU/Suave-photo-3.jpg',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597533238335-SIMC77TT16O17Y7G6GXC/Suave-photo-2.jpg',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1493301139288-O6CAOGC06IRGWB8W2WIC/image-asset.png'
+        ],
+        galleryLayout: [ 0, [1,2], 3, [4,5], 6, 7 ],
+        steps: [
+          { n: 1, text: "Found 20 of Instagram's trendiest beauty junkies, rebottled and rebranded Suave as its cooler alter ego, Evaus, then invited them to try the next big thing in hair care. Created an Evaus landing page and Instagram account." },
+          { n: 2, text: 'Invited beauty bloggers to a brand ambassador casting. Captured their authentic love for Evaus then revealed it was Suave.' },
+          { n: 3, text: 'Repeated the experiment to a wider audience.' }
+        ]
+      },
+      {
+        id: 'giant-food',
+        title: 'GIANT FOOD',
+        thumbnail: 'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1603994107683-MXU3R3A245EZTKGBE66S/Giant_Holiday-55.jpg',
+        description: 'The DC-Maryland-Virginia area is extremely diverse but we can all agree on one thing, food brings us together. Building on The Little Things are Giant campaign, we created Holiday and Winter spots around the idea that we are all connected by food.',
+        awards: [],
+        videos: ['471009967','471010140','576831427'],
+        images: [
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1603994197667-KMFTNQLQVXJGAA81F746/Giant+Thanksgiving+Turkey',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1603994223297-2JYVDJDTN36WRT6G44E4/Giant+Thanksgiving',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1603994161496-1WU44C4LTDXHHLPQU735/Giant+Holiday+Mom+and+baby',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1603994257483-F4SNPD3I0B2HVTVNYMOG/Giant+Holiday+Greetings',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1626713821666-RB14WLPVLQ7FMDL1ENBN/rp3agency_201833954_611213746505162_1375685447799835720_n.jpg'
+        ]
+      },
+      {
+        id: 'girl-scouts',
+        title: 'GIRL SCOUTS',
+        thumbnail: 'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597587135884-VZQMLJYREJTLJROTRCI5/ezgif.com-optimize.gif',
+        description: "The Gold Award is the Girl Scouts' highest honor. But they've struggled for years to make it as prestigious among employers and college admissions directors as the Eagle Scout is for boys. We told the true story of one Gold Award Girl Scout whose hard work and leadership forged a sustainable solution to a real-world problem by building a community garden for a women's shelter.",
+        awards: [],
+        videos: ['448174008'],
+        images: [
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1569683532728-8KHVJXEC0Q6F85MX275R/Girl+Scouts',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1569683491807-H6HZ3CKAJ94M1OJAYJE4/Girl+Scouts',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1569683443282-A6B99M0PA2MR0PAS7KPF/Girl+Scouts',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597534279533-8JN7BEIFQXPDA7Y474ES/GirlScouts-flatlay.jpg',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1569683571327-I73HRW4T6PBG9CMF339G/Girl+Scouts',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1569683639664-D1VXHOAFJZI6FA82JNJ9/Girl+Scouts'
+        ]
+      },
+      {
+        id: 'childrens-national-1',
+        title: "CHILDREN'S NATIONAL",
+        thumbnail: 'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1569698288272-HUTKYT50LTZ1TJO5IFLP/DSC_0534.jpg',
+        description: "Children's National is by your kid's side from the moment they walk through their doors to well after they've returned home. We told the story of two kids who were able to get back to their passions thanks to the top pediatric care from Children's National.",
+        awards: [],
+        videos: [],
+        images: [
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1569682507132-S3N8934NDQR1B9GYI2SI/Children%27s+Print',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597581068672-1XPBXCG2355EG01UAUUW/Feature-4.jpg',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1569682592734-VVAXORKFWX4RXBT2BR6K/ooh-1.jpg',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1626714458274-L7U0XEEAHGRBDWCG8G1R/CHI-kids-being-kids-social.png'
+        ]
+      },
+      {
+        id: 'content',
+        title: 'SOCIAL CONTENT',
+        thumbnail: 'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597585950610-7ZIV91OKO4IX0OH1W09Y/Social+Content.jpg',
+        description: 'A collection of social content created in-house with small budgets, requiring many roles including photographer, editor, retoucher, director, hand-model.',
+        awards: [],
+        videos: ['448265090','448308288'],
+        images: [
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597581453244-010GNTGVJF8FAZM7EAO1/Magnum-flatlay.jpg',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597581965991-NWEAFG6XSJ4GA4CF5690/Carls-flatlay.jpg',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597582093313-JA4L0U8GEPBDK902R4O7/Carls-GIF.gif',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597583580321-LD8TJ3I975NGCHF951HB/All+products.jpg',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597584445591-YUYFLYX3XLSK3MB2LLIZ/HRCI-GIF.gif',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597582958685-6LSN96YUEIGE0IMBJLR3/HRCI-devices.jpg'
+        ],
+        subsections: [
+          { title: 'MAGNUM',     desc: "Social content for Magnum Ice Cream's NYC pop-up shop. Photographed and wrote all social/promotional content including PR day with Kendall Jenner and Hailey Baldwin (with partner Jen Hubbard)." },
+          { title: "CARL'S JR.", desc: "Social content for Carl's Jr./Hardee's. Photography and copy (with partner Jen Hubbard)." },
+          { title: 'HRCI',       desc: 'Created fake HR Certification Institute products to personify the benefits of an HRCI Certification. Art directed photoshoot, designed labels, retouched, composited. Social content, digital banners, landing page (with partner Chase Johnson).' },
+          { title: 'CHEZ LILY',  desc: 'Photographed menu items.' }
+        ]
+      },
+      {
+        id: 'clinique',
+        title: 'CLINIQUE',
+        thumbnail: 'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1603376260205-4LFH811DNJ8GHLTB31HT/Screen+Shot+2020-10-22+at+10.17.14+AM.png',
+        description: "If your concealer is working, you shouldn't be able to tell you're wearing it. The shade should match exactly and the coverage should stay in place. So we played into this by showing real women in a variety of situations (and skin tones) that require their concealer to work for the long haul. Their secret? Beyond Perfecting Concealer.",
+        awards: [],
+        videos: ['227812389','223669209'],
+        images: [
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597534362274-197BVKEOSK9T3OIXQSRU/Clinique-3.jpg',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597534351444-HZTWZ6X5CARHU1LSN0EY/Clinique-2.jpg',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597534325155-VM16LGA0HGSPDMO4F9A4/Clinique-1.jpg',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597534376086-JXC2RC4OQ7AH0J6GSKBP/Clinique-flatlay.jpg'
+        ]
+      },
+      {
+        id: 'norfolk-southern',
+        title: 'NORFOLK SOUTHERN',
+        thumbnail: 'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597587681731-E1YE692QTK21SY6SEJA1/Screen+Shot+2020-08-16+at+10.21.07+AM.png',
+        description: 'Freight rail is perceived as old school. So we launched Reimagine Possible, a fully integrated campaign that redefines rail as we know it, by showing Norfolk Southern as a cutting-edge tech company.',
+        awards: [],
+        videos: ['448280639','321612404'],
+        images: [
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597587681731-E1YE692QTK21SY6SEJA1/Screen+Shot+2020-08-16+at+10.21.07+AM.png',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1551836498611-0JE4RW016VWBMTMLYWLQ/NS+Print',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1569687783334-CD2QE0R08FSUJB2F3NRI/Norfolk+Southern',
+          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1551836535763-6FQWZF16F3LW1UVQSAEQ/NS+online'
+        ]
+      }
+    ];
+
+    // ── ROUTER ────────────────────────────────────────────────────────────────
+    function getRoute() {
+      var h = window.location.hash.slice(1);
+      return h || '/';
+    }
+    window.addEventListener('hashchange', render);
+    window.addEventListener('load', render);
+
+    function render() {
+      var route = getRoute();
+      var app = document.getElementById('app');
+      window.scrollTo(0, 0);
+      if (route === '/' || route === '') {
+        app.innerHTML = renderHome();
+      } else if (route === '/contact') {
+        app.innerHTML = renderAbout();
+      } else {
+        var id = route.replace(/^\//, '').replace(/\/bpc$/, '');
+        var project = null;
+        for (var i = 0; i < PROJECTS.length; i++) {
+          if (PROJECTS[i].id === id) { project = PROJECTS[i]; break; }
+        }
+        if (project) {
+          app.innerHTML = renderProject(project);
+        } else {
+          app.innerHTML = '<div style="padding:200px 48px;text-align:center;font-family:var(--font-mono);">Page not found.</div>';
+        }
+      }
+    }
+
+    // ── RENDERERS ─────────────────────────────────────────────────────────────
+
+    function tile(p, sizeClass) {
+      return '<a href="#/' + p.id + '" class="portfolio-tile ' + sizeClass + '">'
+        + '<img src="' + p.thumbnail + '" alt="' + p.title + '" loading="lazy">'
+        + '<div class="portfolio-tile-overlay"><span class="portfolio-tile-title">' + p.title + '</span></div>'
+        + '</a>';
+    }
+
+    function renderHome() {
+      var grid = '';
+      var i = 0, turn = 0;
+      while (i < PROJECTS.length) {
+        if (turn === 0) {
+          grid += tile(PROJECTS[i], 'tile-full');
+          i++; turn = 1;
+        } else {
+          var a = PROJECTS[i], b = PROJECTS[i + 1];
+          if (b) {
+            grid += '<div class="portfolio-pair">' + tile(a, 'tile-half') + tile(b, 'tile-half') + '</div>';
+            i += 2;
+          } else {
+            grid += tile(a, 'tile-full');
+            i++;
+          }
+          turn = 0;
+        }
+      }
+      return '<section class="hero"><div class="hero-text"><h1>Chandler Blocker is an Associate Creative Director based in Dallas, TX</h1></div></section>'
+           + '<section class="portfolio-grid">' + grid + '</section>';
+    }
+
+    function renderAbout() {
+      return '<div class="about-page">'
+        + ''
+        + '<a href="mailto:chandler@blockercreative.com" style="font-family:var(--font-hero);font-size:48px;font-weight:600;color:var(--heading);text-transform:uppercase;letter-spacing:0.03em;line-height:1.35;display:block;margin-bottom:52px;">chandler@blockercreative.com</a>'
+        + '<div class="about-exp">'
+        + '<div class="about-exp-label">Experience</div>'
+        + '<div class="exp-grid">'
+        + '<span class="exp-title">Founder &amp; Creative Director</span><span class="exp-location">Blocker Creative, Dallas</span><span class="exp-years">2020 &ndash; Present</span>'
+        + '<span class="exp-title">Associate Creative Director</span><span class="exp-location">RP3 Agency, DC</span><span class="exp-years">2021 &ndash; 2023</span>'
+        + '<span class="exp-title">Sr. Art Director</span><span class="exp-location">RP3 Agency, DC</span><span class="exp-years">2019 &ndash; 2021</span>'
+        + '<span class="exp-title">Art Director</span><span class="exp-location">RP3 Agency, DC</span><span class="exp-years">2018 &ndash; 2019</span>'
+        + '<span class="exp-title">Art Director</span><span class="exp-location">Carrot, New York</span><span class="exp-years">2017 &ndash; 2018</span>'
+        + '<span class="exp-title">Jr. Art Director</span><span class="exp-location">Carrot, New York</span><span class="exp-years">2016 &ndash; 2017</span>'
+        + '<span class="exp-title">Jr. Art Director</span><span class="exp-location">Arnold, New York</span><span class="exp-years">2015 &ndash; 2016</span>'
+        + '<span class="exp-title">Art Director Intern</span><span class="exp-location">Arnold, New York</span><span class="exp-years">Summer 2015</span>'
+        + '</div>'
+        + '<div class="exp-edu">B.A. Creative Advertising,Southern Methodist University,Dallas</div>'
+        + '</div></div>';
+    }
+
+    function renderProject(p) {
+      var idx  = -1;
+      for (var k = 0; k < PROJECTS.length; k++) { if (PROJECTS[k].id === p.id) { idx = k; break; } }
+      var prev = idx > 0 ? PROJECTS[idx - 1] : null;
+      var next = idx < PROJECTS.length - 1 ? PROJECTS[idx + 1] : null;
+
+      // Awards
+      var awardsHTML = '';
+      if (p.awards && p.awards.length) {
+        awardsHTML = '<div class="portfolio-awards"><div class="portfolio-awards-label">Awards</div>';
+        for (var i = 0; i < p.awards.length; i++) awardsHTML += '<div>' + p.awards[i] + '</div>';
+        awardsHTML += '</div>';
+      }
+
+      // Case steps (Suave)
+      var stepsHTML = '';
+      if (p.steps) {
+        stepsHTML = '<div class="case-steps">';
+        for (var i = 0; i < p.steps.length; i++) {
+          stepsHTML += '<div class="case-step-label">Step ' + p.steps[i].n + '</div>'
+                     + '<div class="case-step-text">' + p.steps[i].text + '</div>';
+        }
+        stepsHTML += '</div>';
+      }
+
+      // Subsections (Social Content)
+      var subsHTML = '';
+      if (p.subsections) {
+        for (var i = 0; i < p.subsections.length; i++) {
+          subsHTML += '<div class="subsection-wrap">'
+                    + '<div class="subsection-title">' + p.subsections[i].title + '</div>'
+                    + '<div class="subsection-desc">' + p.subsections[i].desc + '</div>'
+                    + '</div>';
+        }
+      }
+
+      // Videos
+      var videosHTML = '';
+      for (var i = 0; i < p.videos.length; i++) {
+        videosHTML += '<div class="vimeo-embed">'
+          + '<iframe src="https://player.vimeo.com/video/' + p.videos[i] + '?title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>'
+          + '</div>';
+      }
+
+      // Images — galleryLayout override or default (all full width)
+      var imgsHTML = '';
+      if (p.images.length) {
+        var layout = p.galleryLayout || p.images.map(function(_, i) { return i; });
+        for (var i = 0; i < layout.length; i++) {
+          var row = layout[i];
+          if (Array.isArray(row)) {
+            imgsHTML += '<div class="gallery-row-pair">'
+              + '<img src="' + p.images[row[0]] + '" alt="' + p.title + '" loading="lazy">'
+              + '<img src="' + p.images[row[1]] + '" alt="' + p.title + '" loading="lazy">'
+              + '</div>';
+          } else {
+            imgsHTML += '<div class="gallery-row-full"><img src="' + p.images[row] + '" alt="' + p.title + '" loading="lazy"></div>';
+          }
+        }
+      }
+
+      // Prev/Next nav
+      var navHTML = '<div class="project-nav">'
+        + (prev ? '<a href="#/' + prev.id + '">&larr; ' + prev.title + '</a>' : '<span class="nav-spacer"></span>')
+        + '<a href="#/">All Work</a>'
+        + (next ? '<a href="#/' + next.id + '">' + next.title + ' &rarr;</a>' : '<span class="nav-spacer"></span>')
+        + '</div>';
+
+      return '<div class="portfolio-page">'
+        + '<div class="portfolio-page-header">'
+        + '<div class="portfolio-page-title">' + p.title + '</div>'
+        + '<div class="portfolio-page-desc">' + p.description + '</div>'
+        + awardsHTML + stepsHTML
+        + '</div>'
+        + subsHTML
+        + videosHTML
+        + imgsHTML
+        + navHTML
+        + '</div>';
+    }
+
+  </script>
 </body>
 </html>
