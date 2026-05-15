@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chandler Blocker — Creative Director & UGC Creator</title>
+  <meta name="description" content="Chandler Blocker is a creative director and UGC creator based in Dallas, TX. Former ACD with agency work for Children's National, Reese's, Girl Scouts, and more.">
+  <meta property="og:title" content="Chandler Blocker">
+  <meta property="og:description" content="Creative director & UGC creator based in Dallas, TX.">
+  <meta property="og:url" content="https://blockercreative.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #111111;
+      --white: #ffffff;
+      --off-white: #f7f6f4;
+      --gray: #888888;
+      --accent: #e8501a;
+      --font-display: 'Barlow Condensed', sans-serif;
+      --font-body: 'Barlow', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 48px;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 18px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--black);
+      line-height: 1.15;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--black);
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover { opacity: 0.5; }
+
+    .nav-links .nav-cta {
+      background: var(--black);
+      color: var(--white);
+      padding: 10px 20px;
+      letter-spacing: 0.1em;
+    }
+
+    .nav-links .nav-cta:hover { opacity: 0.75; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 140px 48px 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(52px, 7vw, 96px);
+      line-height: 0.95;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      max-width: 900px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--gray);
+    }
+
+    .hero-sub {
+      margin-top: 40px;
+      font-size: 18px;
+      color: var(--gray);
+      max-width: 520px;
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      margin-top: 48px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 28px;
+      transition: all 0.2s;
+    }
+
+    .btn-dark {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .btn-dark:hover {
+      background: #333;
+    }
+
+    .btn-outline {
+      border: 1.5px solid var(--black);
+      color: var(--black);
+    }
+
+    .btn-outline:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    /* ── SECTION LABELS ── */
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 48px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    /* ── WORK GRID ── */
+    #work {
+      padding: 120px 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4px;
+    }
+
+    .work-item {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      display: block;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .work-item-bg {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+
+    .work-item:hover .work-item-bg {
+      transform: scale(1.04);
+    }
+
+    .work-item-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0);
+      transition: background 0.3s;
+      display: flex;
+      align-items: flex-end;
+      padding: 32px;
+    }
+
+    .work-item:hover .work-item-overlay {
+      background: rgba(0,0,0,0.35);
+    }
+
+    .work-item-label {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .work-item:hover .work-item-label {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Project color backgrounds (used until real images are swapped in) */
+    .bg-childrens   { background-color: #f5d9e8; background-image: linear-gradient(135deg, #f5d9e8 0%, #adc9e8 60%, #f5d9e8 100%); }
+    .bg-reeses      { background-color: #e8501a; background-image: linear-gradient(135deg, #e8501a 0%, #f5b800 100%); }
+    .bg-girlscouts  { background-color: #1a2e3b; background-image: linear-gradient(135deg, #1a2e3b 0%, #2d5a6b 100%); }
+    .bg-social      { background-color: #6a2f9e; background-image: linear-gradient(135deg, #6a2f9e 0%, #c0392b 100%); }
+
+    /* ── UGC SECTION ── */
+    #ugc {
+      background: var(--off-white);
+      padding: 120px 48px;
+    }
+
+    .ugc-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .ugc-left h2 {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(40px, 5vw, 72px);
+      line-height: 0.95;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .ugc-left h2 span {
+      color: var(--accent);
+    }
+
+    .ugc-left p {
+      font-size: 17px;
+      color: #444;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    .ugc-packages {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .ugc-package {
+      background: var(--white);
+      padding: 28px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .ugc-package-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .ugc-package-desc {
+      font-size: 13px;
+      color: var(--gray);
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+
+    .ugc-package-price {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 22px;
+      white-space: nowrap;
+      color: var(--black);
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      padding: 120px 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    #about h2 {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(40px, 5vw, 64px);
+      line-height: 0.95;
+      text-transform: uppercase;
+    }
+
+    .about-body p {
+      font-size: 17px;
+      line-height: 1.75;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .about-body p:last-child { margin-bottom: 0; }
+
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 32px;
+    }
+
+    .tag {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 8px 14px;
+      border: 1px solid #ddd;
+      color: #555;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--black);
+      color: var(--white);
+      padding: 120px 48px;
+      text-align: center;
+    }
+
+    #contact h2 {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(48px, 7vw, 96px);
+      line-height: 0.95;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+
+    #contact p {
+      font-size: 18px;
+      color: #aaa;
+      max-width: 480px;
+      margin: 0 auto 48px;
+      line-height: 1.6;
+    }
+
+    .contact-email {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(20px, 3vw, 32px);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 4px;
+      transition: color 0.2s;
+    }
+
+    .contact-email:hover { color: var(--accent); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid #222;
+      padding: 24px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer p {
+      font-size: 12px;
+      color: #555;
+      letter-spacing: 0.08em;
+    }
+
+    footer a {
+      font-size: 12px;
+      color: #555;
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      transition: color 0.2s;
+    }
+
+    footer a:hover { color: var(--white); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      nav { padding: 20px 24px; }
+      .nav-logo { font-size: 15px; }
+      .nav-links { gap: 20px; }
+      .nav-links li:not(:last-child) { display: none; }
+
+      .hero { padding: 120px 24px 60px; }
+      #work { padding: 80px 24px; }
+      .work-grid { grid-template-columns: 1fr; }
+
+      #ugc { padding: 80px 24px; }
+      .ugc-inner { grid-template-columns: 1fr; gap: 48px; }
+
+      #about { padding: 80px 24px; grid-template-columns: 1fr; gap: 32px; }
+      #contact { padding: 80px 24px; }
+
+      footer { padding: 20px 24px; flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo">Chandler<br>Blocker</a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#ugc">UGC</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">Dallas, TX — Creative Director & UGC Creator</p>
+    <h1>Chandler Blocker<br><em>Makes Things</em><br>People Remember</h1>
+    <p class="hero-sub">Former associate creative director turned content creator. Agency work you've seen. UGC that actually converts.</p>
+    <div class="hero-actions">
+      <a href="#work" class="btn btn-dark">See the Work</a>
+      <a href="#ugc" class="btn btn-outline">UGC Services</a>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <p class="section-label">Selected Work</p>
+    <div class="work-grid">
+
+      <a href="childrens-national.html" class="work-item">
+        <div class="work-item-bg bg-childrens"></div>
+        <div class="work-item-overlay">
+          <span class="work-item-label">Children's National</span>
+        </div>
+      </a>
+
+      <a href="reeses.html" class="work-item">
+        <div class="work-item-bg bg-reeses"></div>
+        <div class="work-item-overlay">
+          <span class="work-item-label">Reese's</span>
+        </div>
+      </a>
+
+      <a href="girl-scouts.html" class="work-item">
+        <div class="work-item-bg bg-girlscouts"></div>
+        <div class="work-item-overlay">
+          <span class="work-item-label">Girl Scouts</span>
+        </div>
+      </a>
+
+      <a href="social-content.html" class="work-item">
+        <div class="work-item-bg bg-social"></div>
+        <div class="work-item-overlay">
+          <span class="work-item-label">Social Content</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- UGC -->
+  <section id="ugc">
+    <div class="ugc-inner">
+      <div class="ugc-left">
+        <p class="section-label">UGC Services</p>
+        <h2>Content Brands<br>Actually <span>Use</span></h2>
+        <p>I create short-form video content from a real mom's perspective — authentic, relatable, and designed to drive trust. Not polished studio work. The kind of thing that makes someone think "I need that."</p>
+        <p>Background in agency creative. Now building from the living room floor.</p>
+        <a href="#contact" class="btn btn-dark">Let's Work Together</a>
+      </div>
+      <div class="ugc-right">
+        <p class="section-label">Packages</p>
+        <div class="ugc-packages">
+          <div class="ugc-package">
+            <div>
+              <div class="ugc-package-name">Single Video</div>
+              <div class="ugc-package-desc">1 vertical video (15–60s) · Reels/TikTok ready · 1 revision</div>
+            </div>
+            <div class="ugc-package-price">$150–250</div>
+          </div>
+          <div class="ugc-package">
+            <div>
+              <div class="ugc-package-name">Content Pack</div>
+              <div class="ugc-package-desc">3 vertical videos · Hook, demo & testimonial · 1 revision each</div>
+            </div>
+            <div class="ugc-package-price">$400–600</div>
+          </div>
+          <div class="ugc-package">
+            <div>
+              <div class="ugc-package-name">Monthly Retainer</div>
+              <div class="ugc-package-desc">4 videos/month · Priority turnaround · Ongoing brand voice</div>
+            </div>
+            <div class="ugc-package-price">$600–900</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div>
+      <p class="section-label">About</p>
+      <h2>ACD.<br>Mom.<br>Builder.</h2>
+    </div>
+    <div class="about-body">
+      <p>I spent years as an Associate Creative Director at an advertising agency — working on campaigns for national brands, directing video shoots, and building the kind of work that wins awards and moves product.</p>
+      <p>Now I'm a stay-at-home mom in Dallas, and I've taken everything I learned in that world into this one. I create UGC for family, kids, and lifestyle brands — and I run <strong>AI at Home Mom</strong>, a content channel showing moms how to use AI to build real things.</p>
+      <p>I know what brands need from content. I also know what actually resonates with moms. That combination is rare.</p>
+      <div class="about-tags">
+        <span class="tag">Video Direction</span>
+        <span class="tag">UGC Creation</span>
+        <span class="tag">Brand Creative</span>
+        <span class="tag">Social Content</span>
+        <span class="tag">Reels & TikTok</span>
+        <span class="tag">Dallas, TX</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Let's Make<br>Something</h2>
+    <p>Interested in UGC, brand creative, or just want to talk? I'd love to hear from you.</p>
+    <a href="mailto:chandler@blockercreative.com" class="contact-email">chandler@blockercreative.com</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Blocker Creative</p>
+    <a href="https://instagram.com" target="_blank">Instagram</a>
+  </footer>
+
+</body>
+</html>
