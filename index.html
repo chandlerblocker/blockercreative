@@ -109,7 +109,7 @@
     .gallery-row-pair img { width: 50%; height: 44vw; object-fit: cover; display: block; }
 
     /* SUBSECTIONS (Social Content) */
-    .subsection-wrap { padding: 32px 48px 0; max-width: 780px; margin: 0 auto; text-align: center; }
+    .subsection-wrap { padding: 32px 48px 40px; max-width: 780px; margin: 0 auto; text-align: center; }
     .subsection-title { font-family: var(--font-nav); font-size: 22px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--heading); margin-bottom: 8px; }
     .subsection-desc  { font-family: var(--font-mono); font-size: 13px; line-height: 26px; color: var(--text); }
 
@@ -145,6 +145,11 @@
       .nav-links { gap: 20px; }
       .hero-text h1 { font-size: 28px; }
 
+      /* Portfolio grid: flex column so we can reorder tiles */
+      .portfolio-grid { display: flex; flex-direction: column; }
+      /* Push Social Content to bottom on mobile */
+      .tile-social-content { order: 999; }
+
       /* Work page: stack half tiles vertically */
       .portfolio-pair { flex-direction: column; }
       .portfolio-tile.tile-half { width: 100%; }
@@ -176,7 +181,7 @@
       .exp-line span.exp-years { color: rgba(0,0,0,0.45); }
 
       /* About email: scale down so it doesn't clip */
-      .about-page a[href^="mailto"] { font-size: 28px !important; }
+      .about-page a[href^="mailto"] { font-size: 18px !important; }
     }
   </style>
 </head>
@@ -331,20 +336,34 @@
         thumbnail: 'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597585950610-7ZIV91OKO4IX0OH1W09Y/Social+Content.jpg',
         description: 'A collection of social content created in-house with small budgets, requiring many roles including photographer, editor, retoucher, director, hand-model.',
         awards: [],
-        videos: ['448265090','448308288'],
-        images: [
-          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597581453244-010GNTGVJF8FAZM7EAO1/Magnum-flatlay.jpg',
-          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597581965991-NWEAFG6XSJ4GA4CF5690/Carls-flatlay.jpg',
-          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597582093313-JA4L0U8GEPBDK902R4O7/Carls-GIF.gif',
-          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597583580321-LD8TJ3I975NGCHF951HB/All+products.jpg',
-          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597584445591-YUYFLYX3XLSK3MB2LLIZ/HRCI-GIF.gif',
-          'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597582958685-6LSN96YUEIGE0IMBJLR3/HRCI-devices.jpg'
-        ],
+        videos: [],
+        images: [],
         subsections: [
-          { title: 'MAGNUM',     desc: "Social content for Magnum Ice Cream's NYC pop-up shop. Photographed and wrote all social/promotional content including PR day with Kendall Jenner and Hailey Baldwin (with partner Jen Hubbard)." },
-          { title: "CARL'S JR.", desc: "Social content for Carl's Jr./Hardee's. Photography and copy (with partner Jen Hubbard)." },
-          { title: 'HRCI',       desc: 'Created fake HR Certification Institute products to personify the benefits of an HRCI Certification. Art directed photoshoot, designed labels, retouched, composited. Social content, digital banners, landing page (with partner Chase Johnson).' },
-          { title: 'CHEZ LILY',  desc: 'Photographed menu items.' }
+          {
+            title: 'MAGNUM',
+            desc: "Social content for Magnum Ice Cream's NYC pop-up shop. Photographed and wrote all social/promotional content including PR day with Kendall Jenner and Hailey Baldwin (with partner Jen Hubbard).",
+            videos: ['448265090'],
+            images: ['https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597581453244-010GNTGVJF8FAZM7EAO1/Magnum-flatlay.jpg']
+          },
+          {
+            title: "CARL'S JR.",
+            desc: "Social content for Carl's Jr./Hardee's. Photography and copy (with partner Jen Hubbard).",
+            videos: [],
+            images: [
+              'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597581965991-NWEAFG6XSJ4GA4CF5690/Carls-flatlay.jpg',
+              'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597582093313-JA4L0U8GEPBDK902R4O7/Carls-GIF.gif'
+            ]
+          },
+          {
+            title: 'HRCI',
+            desc: 'Created fake HR Certification Institute products to personify the benefits of an HRCI Certification. Art directed photoshoot, designed labels, retouched, composited. Social content, digital banners, landing page (with partner Chase Johnson).',
+            videos: ['448308288'],
+            images: [
+              'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597583580321-LD8TJ3I975NGCHF951HB/All+products.jpg',
+              'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597584445591-YUYFLYX3XLSK3MB2LLIZ/HRCI-GIF.gif',
+              'https://images.squarespace-cdn.com/content/v1/53c42c39e4b0fb85d41a844f/1597582958685-6LSN96YUEIGE0IMBJLR3/HRCI-devices.jpg'
+            ]
+          },
         ]
       },
       {
@@ -421,7 +440,7 @@
       var i = 0, turn = 0;
       while (i < PROJECTS.length) {
         if (turn === 0) {
-          grid += tile(PROJECTS[i], 'tile-full');
+          grid += tile(PROJECTS[i], 'tile-full' + (PROJECTS[i].id === 'content' ? ' tile-social-content' : ''));
           i++; turn = 1;
         } else {
           var a = PROJECTS[i], b = PROJECTS[i + 1];
@@ -484,15 +503,31 @@
         stepsHTML += '</div>';
       }
 
-      // Subsections (Social Content)
+      // Subsections (Social Content) — supports per-subsection videos + images
       var subsHTML = '';
       if (p.subsections) {
+        var richSubs = p.subsections.some(function(s) { return (s.videos && s.videos.length) || (s.images && s.images.length); });
         for (var i = 0; i < p.subsections.length; i++) {
+          var sub = p.subsections[i];
           subsHTML += '<div class="subsection-wrap">'
-                    + '<div class="subsection-title">' + p.subsections[i].title + '</div>'
-                    + '<div class="subsection-desc">' + p.subsections[i].desc + '</div>'
+                    + '<div class="subsection-title">' + sub.title + '</div>'
+                    + '<div class="subsection-desc">' + sub.desc + '</div>'
                     + '</div>';
+          if (richSubs) {
+            if (sub.videos) {
+              for (var j = 0; j < sub.videos.length; j++) {
+                subsHTML += '<div class="vimeo-embed"><iframe src="https://player.vimeo.com/video/' + sub.videos[j] + '?title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>';
+              }
+            }
+            if (sub.images) {
+              for (var j = 0; j < sub.images.length; j++) {
+                subsHTML += '<div class="gallery-row-full"><img src="' + sub.images[j] + '" alt="' + sub.title + '" loading="lazy"></div>';
+              }
+            }
+          }
         }
+        // If subsections own their media, clear the top-level renders
+        if (richSubs) { videosHTML = ''; imgsHTML = ''; }
       }
 
       // Videos
