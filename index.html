@@ -144,16 +144,39 @@
       nav { padding: 16px 24px; }
       .nav-links { gap: 20px; }
       .hero-text h1 { font-size: 28px; }
-      .portfolio-tile.tile-full  img { height: 50vw; }
-      .portfolio-tile.tile-half  img { height: 50vw; }
+
+      /* Work page: stack half tiles vertically */
+      .portfolio-pair { flex-direction: column; }
+      .portfolio-tile.tile-half { width: 100%; }
+      .portfolio-tile.tile-full  img { height: 56vw; }
+      .portfolio-tile.tile-half  img { height: 56vw; }
       .portfolio-tile-title { font-size: 18px; }
+
       .portfolio-page-header { padding: 40px 24px 24px; }
       .portfolio-page-title  { font-size: 36px; }
       .project-nav { padding: 28px 24px; flex-wrap: wrap; gap: 12px; }
-      .about-page  { padding: 100px 24px 60px; }
+
+      /* About page — extra top padding to clear fixed nav */
+      .about-page  { padding: 140px 24px 60px; }
       .about-h1    { font-size: 52px; }
       .about-intro { font-size: 16px; }
       .subsection-wrap { padding: 24px 24px 0; }
+
+      /* Experience grid: collapse to single column */
+      .exp-grid {
+        grid-template-columns: 1fr;
+        gap: 2px 0;
+      }
+      /* Add breathing room between each job entry (every 3rd span = end of a row) */
+      .exp-grid span:nth-child(3n) {
+        margin-bottom: 14px;
+        padding-bottom: 14px;
+        border-bottom: 1px solid rgba(0,0,0,0.06);
+      }
+      .exp-line span.exp-years { color: rgba(0,0,0,0.45); }
+
+      /* About email: scale down so it doesn't clip */
+      .about-page a[href^="mailto"] { font-size: 28px !important; }
     }
   </style>
 </head>
